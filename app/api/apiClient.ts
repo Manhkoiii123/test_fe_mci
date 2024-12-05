@@ -45,7 +45,6 @@ apiClient.interceptors.response.use(
     return response;
   },
   async (error) => {
-    console.log("🚀 ~ error:", error);
     // const originalConfig = error.config;
     // if (location.pathname !== routerConstants.login && error.response) {
     //   // Access Token was expired
@@ -67,7 +66,7 @@ apiClient.interceptors.response.use(
     //     }
     //   }
     // }
-    // return Promise.reject(error);
+    return Promise.reject(error);
   }
 );
 export default apiClient;

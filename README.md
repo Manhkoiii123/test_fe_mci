@@ -1,3 +1,50 @@
+# User Management Application
+
+## Project Overview
+
+This is a web-based user management application built using modern front-end technologies. The application provides essential features like user authentication and CRUD operations, with a strong emphasis on secure access control. It offers a user-friendly interface and efficient data management powered by robust libraries.
+
+---
+
+## Technologies Used
+
+- **Next.js**: A React framework for building server-rendered and statically generated applications.
+- **TypeScript**: Adds type safety for more robust development.
+- **TanStack Query**: Handles server-side state management and API interactions.
+- **Ant Design (Antd)**: A rich library of UI components and layout utilities for designing professional applications.
+
+---
+
+## Features
+
+### 1. Authentication System
+
+- **Login**: Securely authenticate users with their credentials.
+- **Register**: Create new accounts for users to access the application.
+
+### 2. Middleware for Route Protection
+
+- Restricts non-logged-in users from accessing protected pages like the home dashboard.
+- Prevents authenticated users from revisiting the login or register pages.
+
+### 3. Users
+
+- **Create**: Add new users.
+  Use a third-party API to fetch data about cities. When a city is selected, it will automatically render the corresponding districts.
+- **Read**: View a list of users or specific user details.
+
+---
+
+## Installation and Setup
+
+Follow these steps to set up the project locally:
+
+1. **Clone the repository**:
+   ```bash
+   git clone <repository-url>
+   cd <project-folder>
+   ```
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

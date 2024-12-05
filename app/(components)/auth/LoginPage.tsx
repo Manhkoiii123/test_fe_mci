@@ -1,10 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useMutationLogin } from "@/app/api/auth";
 import { routerConstants } from "@/app/constants/router";
+import { setProfileFromLS } from "@/app/utils/auth";
 import { Button, Form, Input } from "antd";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import Cookies from "universal-cookie";
 type FieldType = {
   username: string;
   password: string;
@@ -12,16 +16,24 @@ type FieldType = {
 const LoginPage = () => {
   const mutationLogin = useMutationLogin();
   const [form] = Form.useForm();
+  const cookies = new Cookies();
+  const router = useRouter();
   const onFinish = (values: FieldType) => {
     mutationLogin.mutate(values, {
-      onSuccess: (data) => {
-        console.log("🚀 ~ data:", data);
+      onSuccess: (data: any) => {
         toast.success("Login successfully");
+        cookies.set("access_token", data.access_token);
+        cookies.set("refresh_token", data.refresh_token);
+        setProfileFromLS(data.user);
+        router.push(routerConstants.home);
+      },
+      onError: (error: any) => {
+        toast.error(error.response.data.detail);
       },
     });
   };
   return (
-    <div className="w-full">
+    <div className="w-full xl:w-[50%]">
       <span className="font-semibold text-[40px] leading-[56px] flex items-center justify-center gap-2">
         <span className="text-primary">Welcome back</span>
       </span>
