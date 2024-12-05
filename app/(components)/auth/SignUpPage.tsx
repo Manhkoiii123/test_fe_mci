@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useMutationSignUp } from "@/app/api/auth";
@@ -20,10 +21,13 @@ const SignUpPage = () => {
         toast.success("Register successfully");
         router.push(routerConstants.login);
       },
+      onError: (error: any) => {
+        toast.error(error.response.data.detail);
+      },
     });
   };
   return (
-    <div className="w-full">
+    <div className="w-full xl:w-[50%]">
       <span className="font-semibold text-[40px] leading-[56px] flex items-center justify-center gap-2">
         <span className="text-primary">Register</span>
       </span>

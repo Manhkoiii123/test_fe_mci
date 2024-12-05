@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 const LayoutAuth = ({ children }: React.PropsWithChildren) => {
   return (
     <div className="px-5 pt-3">
-      <div className="flex items-center justify-center">{children}</div>
+      <div className="flex items-center justify-center ">{children}</div>
     </div>
   );
 };

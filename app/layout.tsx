@@ -4,6 +4,7 @@ import "./globals.css";
 import TanstackWrapper from "@/app/provider/tanstack.wrapper";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { ConfigProvider } from "antd";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -30,8 +31,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TanstackWrapper>{children}</TanstackWrapper>
-        <ToastContainer />
+        <ConfigProvider
+          theme={{
+            token: {
+              colorPrimary: "#BD8306E5",
+              colorPrimaryHover: "#BD8306E5",
+            },
+          }}
+        >
+          <TanstackWrapper>{children}</TanstackWrapper>
+          <ToastContainer />
+        </ConfigProvider>
       </body>
     </html>
   );

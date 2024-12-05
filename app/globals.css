@@ -49,3 +49,15 @@ img {
 .selectTest .ant-select-selection-item-remove {
   display: none !important;
 }
+.ant-modal-content {
+  padding: 0 !important;
+  overflow: hidden;
+}
+.ant-pagination-item {
+  border-radius: 30px !important;
+  border: 1px solid #000 !important;
+}
+.ant-pagination-item-active {
+  background-color: #f07525 !important;
+  border: 1px solid #f07525 !important;
+}
